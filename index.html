@@ -11,13 +11,18 @@
   <body>
     <div class="input-fields flex space-between align-center">
       <label for="type">Type</label>
-      <input type="text" placeholder="Type of transaction (Income/Expense)" />
+      <input
+        type="text"
+        placeholder="Type of transaction (Income/Expense)"
+        id="type"
+        required
+      />
       <label for="amount">Amount</label>
-      <input type="number" placeholder="Amount in $" />
+      <input type="number" placeholder="Amount in $" id="amount" required />
       <label for="date">Date</label>
-      <input type="date" placeholder="Date of transaction" />
+      <input type="date" id="date" placeholder="Date of transaction" required />
       <label for="notes">Notes</label>
-      <input type="text" placeholder="Notes" />
+      <input type="text" id="notes" placeholder="Notes" />
       <button id="submit">Submit</button>
     </div>
     <table>
@@ -28,5 +33,7 @@
         <th>Notes</th>
       </tr>
     </table>
+    <script src="./scripts/dom.js"></script>
+    <script src="./scripts/api/createTransaction.js"></script>
   </body>
 </html>
