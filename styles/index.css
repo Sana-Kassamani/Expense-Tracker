@@ -1,0 +1,27 @@
+table,
+th,
+td {
+  border: 2px solid rgb(0, 191, 255);
+}
+table {
+  width: 80%;
+}
+th {
+  height: 50px;
+}
+
+.input-fields {
+  padding: 20px;
+  padding-bottom: 50px;
+}
+
+input {
+  border: 1px solid black;
+  padding: 10px;
+}
+button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(189, 114, 114);
+  color: black;
+}

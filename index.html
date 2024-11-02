@@ -3,7 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/base/base.css" />
+    <link rel="stylesheet" href="./styles/base/utilities.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
     <title>Expense Tracker</title>
   </head>
-  <body></body>
+  <body>
+    <div class="input-fields flex space-between align-center">
+      <label for="type">Type</label>
+      <input type="text" placeholder="Type of transaction (Income/Expense)" />
+      <label for="amount">Amount</label>
+      <input type="number" placeholder="Amount in $" />
+      <label for="date">Date</label>
+      <input type="date" placeholder="Date of transaction" />
+      <label for="notes">Notes</label>
+      <input type="text" placeholder="Notes" />
+      <button id="submit">Submit</button>
+    </div>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Notes</th>
+      </tr>
+    </table>
+  </body>
 </html>
