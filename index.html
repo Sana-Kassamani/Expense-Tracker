@@ -33,10 +33,16 @@
       <input type="radio" name="type" value="Income" id="IncomeFilter" />
       <button id="filter">Filter</button>
     </div>
-    <label for="max">Max</label>
+    <label for="max">Below</label>
     <input type="number" id="max" placeholder="Maximum Price" />
-    <label for="minimum">Min</label>
+    <label for="minimum">Above</label>
     <input type="number" id="min" placeholder="Minimum Price" />
+
+    <label for="beforeDate">Before</label>
+    <input type="date" id="beforeDate" placeholder="Before this date" />
+    <label for="afterDate">After</label>
+    <input type="date" id="afterDate" placeholder="After this date" />
+
     <table id="transactions">
       <tr id="header">
         <th>Type</th>

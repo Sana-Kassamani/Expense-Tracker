@@ -8,6 +8,8 @@ let income = document.getElementById("IncomeFilter");
 let expense = document.getElementById("ExpenseFilter");
 let maxAmount = document.getElementById("max");
 let minAmount = document.getElementById("min");
+let beforeDate = document.getElementById("beforeDate");
+let afterDate = document.getElementById("afterDate");
 
 function addDeleteBtn(parent, id) {
   let btn = document.createElement("button");

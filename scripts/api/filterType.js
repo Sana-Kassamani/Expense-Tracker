@@ -52,6 +52,20 @@ function aboveMinAmount(amount) {
   }
 }
 
+function checkBeforeDate(date) {
+  const transactionDate = new Date(date);
+  const selectedDate = new Date(beforeDate.value);
+
+  return transactionDate < selectedDate;
+}
+function checkAfterDate(date) {
+  const transactionDate = new Date(date);
+  const selectedDate = new Date(afterDate.value);
+
+  return transactionDate > selectedDate;
+}
+
+function searchWord(word) {}
 function showAllTable() {
   let tr = table.getElementsByTagName("tr");
   for (let i = 1; i < tr.length; i++) {
@@ -63,13 +77,10 @@ let filterBtn = document.getElementById("filter");
 
 filterBtn.addEventListener("click", () => {
   showAllTable();
-  console.log("filter Checked");
-  if (expense.checked || income.checked) {
-    filterByType();
-  }
 
-  console.log(maxAmount);
-  console.log(typeof maxAmount.value);
+  expense.checked || (income.checked && filterByType());
   maxAmount.value && filterTable(indexToAttribute["amount"], belowMaxAmount);
   minAmount.value && filterTable(indexToAttribute["amount"], aboveMinAmount);
+  beforeDate.value && filterTable(indexToAttribute["date"], checkBeforeDate);
+  afterDate.value && filterTable(indexToAttribute["date"], checkAfterDate);
 });
