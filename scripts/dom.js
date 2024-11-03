@@ -6,6 +6,8 @@ let transactionDate = document.getElementById("date");
 let transactionNotes = document.getElementById("notes");
 let income = document.getElementById("IncomeFilter");
 let expense = document.getElementById("ExpenseFilter");
+let maxAmount = document.getElementById("max");
+let minAmount = document.getElementById("min");
 
 function addDeleteBtn(parent, id) {
   let btn = document.createElement("button");

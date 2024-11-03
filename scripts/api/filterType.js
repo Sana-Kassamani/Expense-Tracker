@@ -1,18 +1,10 @@
-let filterBtn = document.getElementById("filter");
-filterBtn.addEventListener("click", () => {
-  showAllTable();
-  console.log("filter Checked");
-  if (expense.checked || income.checked) {
-    filterByType();
-  }
-});
-
 const indexToAttribute = {
   type: 0,
   amount: 1,
   date: 2,
   notes: 3,
 };
+
 function filterByType() {
   console.log("filtered by type");
   if (income.checked) {
@@ -39,11 +31,25 @@ function filterTable(index, filter) {
 }
 
 function typeIncome(type) {
-  if (type === "Income") return true;
+  return type === "Income";
 }
 
 function typeExpense(type) {
-  if (type === "Expense") return true;
+  return type === "Expense";
+}
+function belowMaxAmount(amount) {
+  try {
+    return parseInt(amount) <= parseInt(maxAmount.value);
+  } catch {
+    console.log("Error parsing max amount");
+  }
+}
+function aboveMinAmount(amount) {
+  try {
+    return parseInt(amount) >= parseInt(minAmount.value);
+  } catch {
+    console.log("Error parsing min amount");
+  }
 }
 
 function showAllTable() {
@@ -52,3 +58,18 @@ function showAllTable() {
     tr[i].style.display = "table-row";
   }
 }
+
+let filterBtn = document.getElementById("filter");
+
+filterBtn.addEventListener("click", () => {
+  showAllTable();
+  console.log("filter Checked");
+  if (expense.checked || income.checked) {
+    filterByType();
+  }
+
+  console.log(maxAmount);
+  console.log(typeof maxAmount.value);
+  maxAmount.value && filterTable(indexToAttribute["amount"], belowMaxAmount);
+  minAmount.value && filterTable(indexToAttribute["amount"], aboveMinAmount);
+});
