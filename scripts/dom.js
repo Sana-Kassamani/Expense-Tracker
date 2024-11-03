@@ -1,4 +1,5 @@
 let submitBtn = document.getElementById("submit");
+let resetBtn = document.getElementById("reset");
 let table = document.getElementById("transactions");
 let transactionType = document.getElementById("type");
 let transactionAmount = document.getElementById("amount");
@@ -47,3 +48,14 @@ const displayTransaction = (transaction) => {
   addEditBtn(row, transaction.id);
   table.appendChild(row);
 };
+
+function reset() {
+  expense.checked = false;
+  income.checked = false;
+  maxAmount.value =
+    minAmount.value =
+    beforeDate.value =
+    afterDate.value =
+    searchWord.value =
+      "";
+}

@@ -37,7 +37,7 @@ function filterTable(index, filter) {
   }
 }
 
-let filterBtn = document.getElementById("filter");
+let filterBtn = document.getElementById("filterBtn");
 
 filterBtn.addEventListener("click", () => {
   showAllTable();
@@ -49,4 +49,9 @@ filterBtn.addEventListener("click", () => {
   beforeDate.value && filterTable(indexToAttribute["date"], checkBeforeDate);
   afterDate.value && filterTable(indexToAttribute["date"], checkAfterDate);
   searchWord.value && filterTable(indexToAttribute["notes"], checkSearchWord);
+});
+
+resetBtn.addEventListener("click", () => {
+  showAllTable();
+  reset();
 });
