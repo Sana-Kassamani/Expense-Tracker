@@ -5,6 +5,23 @@ let transactionAmount = document.getElementById("amount");
 let transactionDate = document.getElementById("date");
 let transactionNotes = document.getElementById("notes");
 
+function addDeleteBtn(parent, id) {
+  let btn = document.createElement("button");
+  btn.setAttribute("class", "delete-btn");
+  btn.setAttribute("id", "delete");
+  btn.setAttribute("transaction-id", `${id}`);
+  btn.innerHTML = "X";
+  parent.appendChild(btn);
+}
+function addEditBtn(parent, id) {
+  let btn = document.createElement("button");
+  btn.setAttribute("class", "edit-btn");
+  btn.setAttribute("id", "edit");
+  btn.setAttribute("transaction-id", `${id}`);
+  btn.innerHTML = "Edit";
+  parent.appendChild(btn);
+}
+
 const displayTransaction = (transaction) => {
   let row = document.createElement("tr");
   let type = document.createElement("td");
@@ -19,5 +36,7 @@ const displayTransaction = (transaction) => {
   row.appendChild(amount);
   row.appendChild(date);
   row.appendChild(notes);
+  addDeleteBtn(row, transaction.id);
+  addEditBtn(row, transaction.id);
   table.appendChild(row);
 };

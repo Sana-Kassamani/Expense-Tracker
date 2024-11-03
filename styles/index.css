@@ -5,6 +5,9 @@ td {
 }
 table {
   width: 80%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 20px;
 }
 th {
   height: 50px;
@@ -24,4 +27,8 @@ button {
   border-radius: 5px;
   background-color: rgb(189, 114, 114);
   color: black;
+}
+.delete-btn,
+.edit-btn {
+  margin: 10px;
 }
