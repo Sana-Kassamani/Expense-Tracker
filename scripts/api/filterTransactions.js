@@ -6,7 +6,6 @@ const indexToAttribute = {
 };
 
 function filterByType() {
-  console.log("filtered by type");
   if (income.checked) {
     filterTable(indexToAttribute["type"], typeIncome);
   } else if (expense.checked) {

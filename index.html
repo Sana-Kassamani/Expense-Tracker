@@ -9,14 +9,26 @@
     <title>Expense Tracker</title>
   </head>
   <body>
+    <div class="display-values flex row space-around">
+      <div id="ExpenseDiv" class="flex column">
+        <h2>Expenses</h2>
+        <h2 id="Expense-value">0</h2>
+      </div>
+      <div class="flex column">
+        <h2>Income</h2>
+        <h2 id="Income-value">0</h2>
+      </div>
+      <div class="flex column">
+        <h2>Budget</h2>
+        <h2 id="Budget-value">0</h2>
+      </div>
+    </div>
     <div class="input-fields flex space-between align-center">
-      <label for="type">Type</label>
-      <input
-        type="text"
-        placeholder="Type of transaction (Income/Expense)"
-        id="type"
-        required
-      />
+      <label for="type">Expense</label>
+      <input type="radio" name="type" value="Expense" id="ExpenseType" />
+      <label for="type">Income</label>
+      <input type="radio" name="type" value="Income" id="IncomeType" />
+
       <label for="amount">Amount</label>
       <input type="number" placeholder="Amount in $" id="amount" required />
       <label for="date">Date</label>
@@ -59,6 +71,7 @@
     </table>
 
     <script src="./scripts/dom.js"></script>
+    <script src="./scripts/getters.js"></script>
     <script src="./scripts/api/getTransaction.js"></script>
     <script src="./scripts/api/createTransaction.js"></script>
     <script src="./scripts/api/deleteTransaction.js"></script>

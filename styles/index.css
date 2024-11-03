@@ -39,3 +39,10 @@ button {
 .save {
   display: none;
 }
+.display-values {
+  margin: 10px 0px;
+  padding: 20px;
+}
+.display-values > div {
+  width: 200px;
+}

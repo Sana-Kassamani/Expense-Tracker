@@ -7,7 +7,7 @@ function typeExpense(type) {
 }
 function checkBelowMaxAmount(amount) {
   try {
-    return parseInt(amount) <= parseInt(maxAmount.value);
+    return parseFloat(amount) <= parseFloat(maxAmount.value);
   } catch {
     console.log("Error parsing max amount");
   }
@@ -15,7 +15,7 @@ function checkBelowMaxAmount(amount) {
 
 function checkAboveMinAmount(amount) {
   try {
-    return parseInt(amount) >= parseInt(minAmount.value);
+    return parseFloat(amount) >= parseFloat(minAmount.value);
   } catch {
     console.log("Error parsing min amount");
   }

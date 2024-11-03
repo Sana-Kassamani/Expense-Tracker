@@ -16,7 +16,8 @@ editBtns.forEach((element) => {
 });
 
 function showTransactionFields(transaction) {
-  transactionType.value = transaction.type;
+  expenseType.checked = transaction.type === expenseType.value ? true : false;
+  incomeType.checked = transaction.type === incomeType.value ? true : false;
   transactionAmount.value = transaction.amount;
   transactionDate.value = transaction.date;
   transactionNotes.value = transaction.notes;
@@ -28,9 +29,14 @@ function showTransactionFields(transaction) {
 }
 
 function saveTransaction(id) {
+  transactionType = expenseType.checked
+    ? expenseType.value
+    : incomeType.checked
+    ? incomeType.value
+    : null;
   const transaction = {
     id: id,
-    type: transactionType.value,
+    type: transactionType,
     amount: transactionAmount.value,
     date: transactionDate.value,
     notes: transactionNotes.value,

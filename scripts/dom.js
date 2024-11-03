@@ -1,7 +1,13 @@
 let submitBtn = document.getElementById("submit");
 let resetBtn = document.getElementById("reset");
 let table = document.getElementById("transactions");
-let transactionType = document.getElementById("type");
+let expenseType = document.getElementById("ExpenseType");
+let incomeType = document.getElementById("IncomeType");
+let transactionType = expenseType.checked
+  ? expenseType.value
+  : incomeType.checked
+  ? incomeType.value
+  : null;
 let transactionAmount = document.getElementById("amount");
 let transactionDate = document.getElementById("date");
 let transactionNotes = document.getElementById("notes");
