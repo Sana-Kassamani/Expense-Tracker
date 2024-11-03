@@ -14,6 +14,13 @@ function filterByType() {
   }
 }
 
+function showAllTable() {
+  let tr = table.getElementsByTagName("tr");
+  for (let i = 1; i < tr.length; i++) {
+    tr[i].style.display = "table-row";
+  }
+}
+
 function filterTable(index, filter) {
   let tr = table.getElementsByTagName("tr");
   for (let i = 1; i < tr.length; i++) {
@@ -30,57 +37,11 @@ function filterTable(index, filter) {
   }
 }
 
-function typeIncome(type) {
-  return type === "Income";
-}
-
-function typeExpense(type) {
-  return type === "Expense";
-}
-function checkBelowMaxAmount(amount) {
-  try {
-    return parseInt(amount) <= parseInt(maxAmount.value);
-  } catch {
-    console.log("Error parsing max amount");
-  }
-}
-function checkAboveMinAmount(amount) {
-  try {
-    return parseInt(amount) >= parseInt(minAmount.value);
-  } catch {
-    console.log("Error parsing min amount");
-  }
-}
-
-function checkBeforeDate(date) {
-  const transactionDate = new Date(date);
-  const selectedDate = new Date(beforeDate.value);
-
-  return transactionDate < selectedDate;
-}
-function checkAfterDate(date) {
-  const transactionDate = new Date(date);
-  const selectedDate = new Date(afterDate.value);
-
-  return transactionDate > selectedDate;
-}
-
-function checkSearchWord(notes) {
-  return notes.toLowerCase().includes(searchWord.value.toLowerCase());
-}
-function showAllTable() {
-  let tr = table.getElementsByTagName("tr");
-  for (let i = 1; i < tr.length; i++) {
-    tr[i].style.display = "table-row";
-  }
-}
-
 let filterBtn = document.getElementById("filter");
 
 filterBtn.addEventListener("click", () => {
   showAllTable();
-
-  expense.checked || (income.checked && filterByType());
+  (expense.checked || income.checked) && filterByType();
   maxAmount.value &&
     filterTable(indexToAttribute["amount"], checkBelowMaxAmount);
   minAmount.value &&
