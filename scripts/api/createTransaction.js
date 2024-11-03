@@ -2,7 +2,7 @@ const createTransaction = () => {
   let id = Number.parseInt(localStorage.getItem("ID"));
   if (Number.isInteger(id)) {
     //check if input filled
-    let transactionType = expenseType.checked
+    transactionType = expenseType.checked
       ? expenseType.value
       : incomeType.checked
       ? incomeType.value
@@ -15,11 +15,26 @@ const createTransaction = () => {
       notes: transactionNotes.value,
     };
 
-    localStorage.setItem(`${id}`, JSON.stringify(transaction));
-    id += 1;
-    localStorage.setItem("ID", id);
-    window.location.reload();
+    if (validityCheck()) {
+      localStorage.setItem(`${id}`, JSON.stringify(transaction));
+      id += 1;
+      localStorage.setItem("ID", id);
+
+      window.location.reload();
+    } else {
+      errorMessage.style.display = "inline";
+    }
   }
 };
 
 submitBtn.addEventListener("click", createTransaction);
+
+function validityCheck() {
+  if (
+    transactionType &&
+    transactionAmount.value &&
+    transactionDate.value &&
+    transactionNotes.value
+  )
+    return true;
+}

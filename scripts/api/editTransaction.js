@@ -24,8 +24,13 @@ function showTransactionFields(transaction) {
   saveBTn.addEventListener("click", () => {
     saveTransaction(transaction.id);
   });
+  input.style.display = "flex";
   saveBTn.style.display = "block";
-  submitBtn.disabled = "true";
+  Array.from(document.getElementsByTagName("button")).forEach(
+    (b) => (b.disabled = true)
+  );
+  saveBTn.disabled = false;
+  submitBtn.style.display = "none";
 }
 
 function saveTransaction(id) {
@@ -41,8 +46,12 @@ function saveTransaction(id) {
     date: transactionDate.value,
     notes: transactionNotes.value,
   };
-  localStorage.setItem(`${id}`, JSON.stringify(transaction));
-  saveBTn.style.display = "none";
-  submitBtn.disabled = "false";
-  window.location.reload();
+  if (validityCheck()) {
+    localStorage.setItem(`${id}`, JSON.stringify(transaction));
+    saveBTn.style.display = "none";
+    submitBtn.disabled = "false";
+    window.location.reload();
+  } else {
+    errorMessage.style.display = "inline";
+  }
 }

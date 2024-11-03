@@ -8,7 +8,7 @@ function getExpenses() {
         totalExpenses += parseFloat(transaction.amount);
     }
   }
-  return totalExpenses;
+  return totalExpenses.toFixed(2);
 }
 function getIncomes() {
   let totalIncomes = 0;
@@ -20,7 +20,7 @@ function getIncomes() {
         totalIncomes += parseFloat(transaction.amount);
     }
   }
-  return totalIncomes;
+  return totalIncomes.toFixed(2);
 }
 
 let expenseH2 = document.getElementById("Expense-value");
@@ -29,4 +29,4 @@ let budgetH2 = document.getElementById("Budget-value");
 
 expenseH2.innerHTML = `${getExpenses()} $`;
 incomeH2.innerHTML = `${getIncomes()} $`;
-budgetH2.innerHTML = `${getIncomes() - getExpenses()} $`;
+budgetH2.innerHTML = `${(getIncomes() - getExpenses()).toFixed(2)} $`;

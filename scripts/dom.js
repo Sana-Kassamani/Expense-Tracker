@@ -19,20 +19,22 @@ let beforeDate = document.getElementById("beforeDate");
 let afterDate = document.getElementById("afterDate");
 let searchWord = document.getElementById("search");
 
+let errorMessage = document.getElementById("error");
+
 function addDeleteBtn(parent, id) {
   let btn = document.createElement("button");
-  btn.setAttribute("class", "delete-btn");
+  btn.setAttribute("class", "delete-btn flex align-center justify-center");
   btn.setAttribute("id", "delete");
   btn.setAttribute("transaction-id", `${id}`);
-  btn.innerHTML = "X";
+  btn.innerHTML = `<div class="div-img"><img src="./assets/trash.png"  /></div>`;
   parent.appendChild(btn);
 }
 function addEditBtn(parent, id) {
   let btn = document.createElement("button");
-  btn.setAttribute("class", "edit-btn");
+  btn.setAttribute("class", "edit-btn flex align-center justify-center");
   btn.setAttribute("id", "edit");
   btn.setAttribute("transaction-id", `${id}`);
-  btn.innerHTML = "Edit";
+  btn.innerHTML = `<div class="div-img"><img src="./assets/pencil.png"  /></div>`;
   parent.appendChild(btn);
 }
 
@@ -65,3 +67,13 @@ function reset() {
     searchWord.value =
       "";
 }
+
+let addBtn = document.getElementById("addBtn");
+let input = document.getElementById("input-fields");
+addBtn.addEventListener("click", () => {
+  input.style.display = "flex";
+  Array.from(document.getElementsByTagName("button")).forEach(
+    (b) => (b.disabled = true)
+  );
+  submitBtn.disabled = false;
+});
