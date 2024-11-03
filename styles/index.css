@@ -9,6 +9,9 @@ table {
   text-align: center;
   margin: 20px;
 }
+tr {
+  display: table-row;
+}
 th {
   height: 50px;
 }

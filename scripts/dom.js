@@ -4,6 +4,8 @@ let transactionType = document.getElementById("type");
 let transactionAmount = document.getElementById("amount");
 let transactionDate = document.getElementById("date");
 let transactionNotes = document.getElementById("notes");
+let income = document.getElementById("IncomeFilter");
+let expense = document.getElementById("ExpenseFilter");
 
 function addDeleteBtn(parent, id) {
   let btn = document.createElement("button");

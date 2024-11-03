@@ -26,8 +26,16 @@
       <button id="submit">Submit</button>
     </div>
     <button id="save-changes" class="save">Save Changes</button>
+    <div id="filter">
+      <label for="type">Expense</label>
+      <input type="radio" name="type" value="Expense" id="ExpenseFilter" />
+      <label for="type">Income</label>
+      <input type="radio" name="type" value="Income" id="IncomeFilter" />
+      <button id="filter">Filter</button>
+    </div>
+
     <table id="transactions">
-      <tr>
+      <tr id="header">
         <th>Type</th>
         <th>Amount</th>
         <th>Date</th>
@@ -41,5 +49,6 @@
     <script src="./scripts/api/createTransaction.js"></script>
     <script src="./scripts/api/deleteTransaction.js"></script>
     <script src="./scripts/api/editTransaction.js"></script>
+    <script src="./scripts/api/filterType.js"></script>
   </body>
 </html>
