@@ -10,6 +10,7 @@ let maxAmount = document.getElementById("max");
 let minAmount = document.getElementById("min");
 let beforeDate = document.getElementById("beforeDate");
 let afterDate = document.getElementById("afterDate");
+let searchWord = document.getElementById("search");
 
 function addDeleteBtn(parent, id) {
   let btn = document.createElement("button");

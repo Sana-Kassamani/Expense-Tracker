@@ -37,14 +37,14 @@ function typeIncome(type) {
 function typeExpense(type) {
   return type === "Expense";
 }
-function belowMaxAmount(amount) {
+function checkBelowMaxAmount(amount) {
   try {
     return parseInt(amount) <= parseInt(maxAmount.value);
   } catch {
     console.log("Error parsing max amount");
   }
 }
-function aboveMinAmount(amount) {
+function checkAboveMinAmount(amount) {
   try {
     return parseInt(amount) >= parseInt(minAmount.value);
   } catch {
@@ -65,7 +65,9 @@ function checkAfterDate(date) {
   return transactionDate > selectedDate;
 }
 
-function searchWord(word) {}
+function checkSearchWord(notes) {
+  return notes.toLowerCase().includes(searchWord.value.toLowerCase());
+}
 function showAllTable() {
   let tr = table.getElementsByTagName("tr");
   for (let i = 1; i < tr.length; i++) {
@@ -79,8 +81,11 @@ filterBtn.addEventListener("click", () => {
   showAllTable();
 
   expense.checked || (income.checked && filterByType());
-  maxAmount.value && filterTable(indexToAttribute["amount"], belowMaxAmount);
-  minAmount.value && filterTable(indexToAttribute["amount"], aboveMinAmount);
+  maxAmount.value &&
+    filterTable(indexToAttribute["amount"], checkBelowMaxAmount);
+  minAmount.value &&
+    filterTable(indexToAttribute["amount"], checkAboveMinAmount);
   beforeDate.value && filterTable(indexToAttribute["date"], checkBeforeDate);
   afterDate.value && filterTable(indexToAttribute["date"], checkAfterDate);
+  searchWord.value && filterTable(indexToAttribute["notes"], checkSearchWord);
 });
